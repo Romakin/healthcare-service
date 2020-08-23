@@ -1,6 +1,7 @@
 package ru.netology.patient.service.medical;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.Test;
 import org.mockito.Mockito;
 import ru.netology.patient.entity.BloodPressure;
 import ru.netology.patient.entity.HealthInfo;
@@ -14,7 +15,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-class MedicalServiceImplTest {
+public class MedicalServiceImplTest {
 
     private MedicalServiceImpl medServ;
 
@@ -23,23 +24,23 @@ class MedicalServiceImplTest {
         medServ = null;
     }
 
-    @org.junit.jupiter.api.Test
-    void checkBloodPressureNormal() {
+    @Test
+    public void checkBloodPressureTestNormal() {
         checkBloodPressure(true);
     }
 
-    @org.junit.jupiter.api.Test
-    void checkBloodPressureNotNormal() {
+    @Test
+    public void checkBloodPressureTestNotNormal() {
         checkBloodPressure(false);
     }
 
-    @org.junit.jupiter.api.Test
-    void checkTemperatureNormal() {
+    @Test
+    public void checkTemperatureTestNormal() {
         checkTemperature(true);
     }
 
-    @org.junit.jupiter.api.Test
-    void checkTemperatureNotNormal() {
+    @Test
+    public void checkTemperatureTestNotNormal() {
         checkTemperature(false);
     }
 
@@ -83,7 +84,7 @@ class MedicalServiceImplTest {
             tO = new BigDecimal("36.6");
         } else {
             bp = new BloodPressure(180, 130);
-            tO = new BigDecimal("38.0");
+            tO = new BigDecimal("38.5");
         }
         return new PatientInfo(
                 "test",
@@ -93,4 +94,5 @@ class MedicalServiceImplTest {
                 new HealthInfo(tO, bp)
         );
     }
+
 }
